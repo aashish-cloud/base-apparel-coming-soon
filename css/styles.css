@@ -1,0 +1,190 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  height: 100%;
+}
+
+.container {
+  font-family: 'Josefin Sans', sans-serif;
+
+  background-image: url("../images/bg-pattern-desktop.svg"),
+  linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  background-size: 67% 100%;
+  background-repeat: no-repeat;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "n n n n r r"
+    "l l l l r r"
+    "l l l l r r"
+    "l l l l r r"
+    "l l l l r r";
+}
+
+.navbar {
+  grid-area: n;
+  padding: 5% 20%;
+}
+
+.left-container {
+  grid-area: l;
+  padding: 5% 20% 10%;
+}
+
+.text-box, .email-box {
+  max-width: 450px;
+}
+
+.heading {
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: 1rem;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.head-color {
+  font-weight: 300;
+  color: hsl(0, 36%, 70%);
+}
+
+.sub-heading {
+  color: hsl(0, 36%, 70%);
+  padding: 20px 0;
+  line-height: 1.5;
+}
+
+.email-box {
+  position: relative;
+  padding-top: 10px;
+}
+
+.rounded-field {
+  width: 77%;
+  padding: 13px 20px;
+  border-radius: 50px;
+  border: 1px solid hsl(0, 36%, 70%);
+  background: transparent;
+}
+
+input::placeholder {
+  color: hsl(0, 36%, 70%);
+}
+
+input:focus {
+  outline: none;
+}
+
+.error-msg {
+  display: inline;
+}
+
+.error-icon {
+  visibility: hidden;
+  position: absolute;
+  left: -30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 35px;
+  border-radius: 50px;
+  background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  right: 20%;
+}
+
+.button:hover {
+  background-image: linear-gradient(135deg, hsl(0, 100%, 98%), hsl(0, 80%, 86%));
+}
+
+.invalid {
+  border: 2px solid hsl(0, 93%, 68%);
+}
+
+.form {
+  position: relative;
+}
+
+.form::before {
+  content: 'Please provide a valid email.';
+  text-align: left;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(0, 36%, 70%);
+}
+
+.right-container {
+  grid-area: r;
+}
+
+.model-desktop {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}
+
+.model-mobile {
+  display: none;
+  transition: all .2s;
+}
+
+@media (max-width: 900px) {
+  .container {
+    display: block;
+    background-image: none;
+  }
+
+  .navbar {
+    padding: 5% 10%;
+  }
+
+  .left-container {
+    text-align: center;
+    padding: 10% 0;
+    background-image: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .text-box, .email-box {
+    margin: auto;
+    padding: 20px;
+  }
+
+  .button {
+    padding: 10px 25px;
+
+    right: 10%;
+    transform: translateX(-20%);
+  }
+
+  .model-desktop {
+    display: none;
+  }
+
+  .model-mobile {
+    display: block;
+    height: 400px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 675px) {
+  .model-mobile {
+    height: 300px;
+  }
+}
